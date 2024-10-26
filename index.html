@@ -415,7 +415,7 @@
                 <!-- Portfolio Start -->
                 
                 <!-- Review Start -->
-                <div class="review" id="review">
+               <!-- <div class="review" id="review">
                     <div class="content-inner">
                         <div class="content-header">
                             <h2>Review</h2>
@@ -469,6 +469,27 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="review-form">
+                    <h2>Submit Your Review</h2>
+                    <form id="reviewForm">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <input type="text" id="profession" placeholder="Your Profession" required>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                        <textarea id="reviewText" placeholder="Write your review..." required></textarea>
+                        <input type="file" id="imageUpload" accept="image/*">
+                        <button type="submit">Submit Review</button>
+                    </form>
+                </div>
+                <div class="review" id="review">
+                    <div class="content-inner">
+                        <div class="content-header">
+                            <h2>Reviews</h2>
+                        </div>
+                        <div class="row align-items-center review-slider" id="reviewSlider">
+                            <!-- Dynamically populated reviews will go here -->
                         </div>
                     </div>
                 </div>
