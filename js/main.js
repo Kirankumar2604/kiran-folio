@@ -61,6 +61,48 @@
         slidesToShow: 1,
         slidesToScroll: 1
     });
+    document.getElementById("reviewForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form from refreshing the page
+    
+        // Retrieve values from form fields
+        const name = document.getElementById("name").value;
+        const profession = document.getElementById("profession").value;
+        const email = document.getElementById("email").value;
+        const reviewText = document.getElementById("reviewText").value;
+        const imageUpload = document.getElementById("imageUpload").files[0];
+    
+        // Create image URL if a file was uploaded, else use a default image
+        let imageURL = "img/default-review.jpg"; // default image
+        if (imageUpload) {
+            imageURL = URL.createObjectURL(imageUpload); // create a temporary URL for the uploaded image
+        }
+    
+        // Clear the form fields after submission
+        document.getElementById("reviewForm").reset();
+    
+        // Create a new review element
+        const reviewContainer = document.getElementById("reviewSlider");
+        const reviewItem = document.createElement("div");
+        reviewItem.classList.add("col-md-12");
+        reviewItem.innerHTML = `
+            <div class="review-slider-item">
+                <div class="review-text">
+                    <p>${reviewText}</p>
+                </div>
+                <div class="review-img">
+                    <img src="${imageURL}" alt="User Image">
+                    <div class="review-name">
+                        <h3>${name}</h3>
+                        <p>${profession}</p>
+                        <p>${email}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    
+        // Add the new review to the slider
+        reviewContainer.appendChild(reviewItem);
+    });
     
     
     // Back to top button
