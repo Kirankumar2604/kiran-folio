@@ -561,25 +561,36 @@
                     </div>
                 </div>
                 <script src="https://smtpjs.com/v3/smtp.js"></script>
-                <script>
-                    function sendEmail() {
-                        Email.send({
-                            Host: "smtp.elasticemail.com",
-                            Username: "project2126@gmail.com",
-                            Password: "717DDB75D7A11ED594438F9A80AD87ADB2C6",
-                            To: 'kirankumargajendran@gmail.com',
-                            From: document.getElementById("email").value,
-                            Subject: "this is my subject",
-                            // Subject: document.getElementById("subject").value,
-                            Body: "this my body"
-                            // Body: `Name: ${document.getElementById("name").value}\nEmail: ${document.getElementById("email").value}\nSubject: ${document.getElementById("subject").value}\nMessage: ${document.getElementById("message").value}`
-                        }).then(
-                            message => alert(message)
-                        ).catch(
-                            error => alert("Failed to send email. " + error)
-                        );
-                    }
-                </script>
+<script>
+    function sendEmail() {
+        const userEmail = document.getElementById("email").value;
+        const userName = document.getElementById("name").value;
+        const emailSubject = document.getElementById("subject").value;
+        const emailMessage = document.getElementById("message").value;
+
+        if (!userEmail) {
+            alert("Please provide your email address.");
+            return;
+        }
+
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "project2126@gmail.com",
+            Password: "717DDB75D7A11ED594438F9A80AD87ADB2C6",
+            To: 'kirankumargajendran@gmail.com',
+            From: userEmail,
+            Subject: emailSubject,
+            Body: `Name: ${userName}\nEmail: ${userEmail}\nSubject: ${emailSubject}\nMessage: ${emailMessage}`
+        }).then(
+            message => {
+                alert("Email sent successfully!");
+                document.querySelector("form").reset(); // Reset the form after sending
+            }
+        ).catch(
+            error => alert("Failed to send email. " + error)
+        );
+    }
+</script>
                 
                 <!-- Contact End -->
                 
