@@ -569,8 +569,10 @@
                             Password: "717DDB75D7A11ED594438F9A80AD87ADB2C6",
                             To: 'kirankumargajendran@gmail.com',
                             From: document.getElementById("email").value,
-                            Subject: document.getElementById("subject").value,
-                            Body: `Name: ${document.getElementById("name").value}\nEmail: ${document.getElementById("email").value}\nSubject: ${document.getElementById("subject").value}\nMessage: ${document.getElementById("message").value}`
+                            Subject: "this is my subject",
+                            // Subject: document.getElementById("subject").value,
+                            Body: "this my body"
+                            // Body: `Name: ${document.getElementById("name").value}\nEmail: ${document.getElementById("email").value}\nSubject: ${document.getElementById("subject").value}\nMessage: ${document.getElementById("message").value}`
                         }).then(
                             message => alert(message)
                         ).catch(
