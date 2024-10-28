@@ -537,60 +537,67 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                            <div class="form">
-                                <form onsubmit="sendEmail(); return false;">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <input type="text" id="name" class="form-control" placeholder="Your Name" required />
+                                <div class="form">
+                                    <form id="contactForm" onsubmit="sendEmail(); return false;">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <input type="text" id="name" class="form-control" placeholder="Your Name" required />
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <input type="email" id="email" class="form-control" placeholder="Your Email" required />
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <input type="email" id="email" class="form-control" placeholder="Your Email" required />
+                                        <div class="form-group">
+                                            <input type="text" id="subject" class="form-control" placeholder="Subject" required />
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" id="subject" class="form-control" placeholder="Subject" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea id="message" class="form-control" rows="5" placeholder="Message" required></textarea>
-                                    </div>
-                                    <div><button class="btn" type="submit">Send Message</button></div>
-                                </form>
+                                        <div class="form-group">
+                                            <textarea id="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+                                        </div>
+                                        <div><button class="btn" type="submit">Send Message</button></div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
                 <script src="https://smtpjs.com/v3/smtp.js"></script>
-<script>
-    function sendEmail() {
-        const userEmail = document.getElementById("email").value;
-        const userName = document.getElementById("name").value;
-        const emailSubject = document.getElementById("subject").value;
-        const emailMessage = document.getElementById("message").value;
-
-        if (!userEmail) {
-            alert("Please provide your email address.");
-            return;
-        }
-
-        Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: "project2126@gmail.com",
-            Password: "717DDB75D7A11ED594438F9A80AD87ADB2C6",
-            To: 'kirankumargajendran@gmail.com',
-            From: userEmail,
-            Subject: emailSubject,
-            Body: `Name: ${userName}\nEmail: ${userEmail}\nSubject: ${emailSubject}\nMessage: ${emailMessage}`
-        }).then(
-            message => {
-                alert("Email sent successfully!");
-                document.querySelector("form").reset(); // Reset the form after sending
-            }
-        ).catch(
-            error => alert("Failed to send email. " + error)
-        );
-    }
-</script>
+                <script>
+                    function sendEmail() {
+                        const userEmail = document.getElementById("email").value;
+                        const userName = document.getElementById("name").value;
+                        const emailSubject = document.getElementById("subject").value;
+                        const emailMessage = document.getElementById("message").value;
+                
+                        // Validate email input to ensure it’s not empty
+                        if (!userEmail || !validateEmail(userEmail)) {
+                            alert("Please enter a valid email address.");
+                            return;
+                        }
+                
+                        Email.send({
+                            Host: "smtp.elasticemail.com",
+                            Username: "project2126@gmail.com",
+                            Password: "717DDB75D7A11ED594438F9A80AD87ADB2C6",
+                            To: 'kirankumargajendran@gmail.com',
+                            From: userEmail,
+                            Subject: emailSubject,
+                            Body: `Name: ${userName}\nEmail: ${userEmail}\nSubject: ${emailSubject}\nMessage: ${emailMessage}`
+                        }).then(
+                            message => {
+                                alert("Email sent successfully!");
+                                document.getElementById("contactForm").reset(); // Reset form after sending
+                            }
+                        ).catch(
+                            error => alert("Failed to send email. " + error)
+                        );
+                    }
+                
+                    // Helper function to validate email format
+                    function validateEmail(email) {
+                        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return emailPattern.test(email);
+                    }
+                </script>
                 
                 <!-- Contact End -->
                 
