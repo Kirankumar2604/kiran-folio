@@ -20,7 +20,7 @@
 
     // news script
  document.addEventListener('DOMContentLoaded', () => {
-    const API_KEY = '57229faa1bf34cbcbf8bd60c36ef3927';
+    const API_KEY = '';
     const API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}`;
 // category=technology&
     async function fetchNews() {
