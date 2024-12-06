@@ -18,49 +18,49 @@
     });
     
 
-    // news script
- document.addEventListener('DOMContentLoaded', () => {
-    const API_KEY = '';
-    const API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}`;
-// category=technology&
-    async function fetchNews() {
-        try {
-            const response = await fetch(API_URL);
-            if (!response.ok) {
-                throw new Error('Failed to fetch news');
-            }
-            const data = await response.json();
-            displayNews(data.articles);
-        } catch (error) {
-            const container = document.getElementById('news-container');
-            container.innerHTML = '<p>Unable to load news at the moment.</p>';
-            console.error(error);
-        }
-    }
+//     // news script
+//  document.addEventListener('DOMContentLoaded', () => {
+//     const API_KEY = '';
+//     const API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}`;
+// // category=technology&
+//     async function fetchNews() {
+//         try {
+//             const response = await fetch(API_URL);
+//             if (!response.ok) {
+//                 throw new Error('Failed to fetch news');
+//             }
+//             const data = await response.json();
+//             displayNews(data.articles);
+//         } catch (error) {
+//             const container = document.getElementById('news-container');
+//             container.innerHTML = '<p>Unable to load news at the moment.</p>';
+//             console.error(error);
+//         }
+//     }
 
-    function displayNews(articles) {
-        const container = document.getElementById('news-container');
-        container.innerHTML = ''; // Clear the loading message
+//     function displayNews(articles) {
+//         const container = document.getElementById('news-container');
+//         container.innerHTML = ''; // Clear the loading message
 
-        if (articles.length === 0) {
-            container.innerHTML = '<p>No news available at the moment.</p>';
-            return;
-        }
+//         if (articles.length === 0) {
+//             container.innerHTML = '<p>No news available at the moment.</p>';
+//             return;
+//         }
 
-        articles.forEach((article) => {
-            const newsItem = document.createElement('div');
-            newsItem.className = 'news-item';
-            newsItem.innerHTML = `
-                <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-                <p>${article.description || 'Click the headline to read more.'}</p>
-                <small>Source: ${article.source.name}</small>
-            `;
-            container.appendChild(newsItem);
-        });
-    }
+//         articles.forEach((article) => {
+//             const newsItem = document.createElement('div');
+//             newsItem.className = 'news-item';
+//             newsItem.innerHTML = `
+//                 <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+//                 <p>${article.description || 'Click the headline to read more.'}</p>
+//                 <small>Source: ${article.source.name}</small>
+//             `;
+//             container.appendChild(newsItem);
+//         });
+//     }
 
-    fetchNews(); // Fetch news when the DOM is loaded
-});
+//     fetchNews(); // Fetch news when the DOM is loaded
+// });
     // Typed Initiate
     if ($('.header h2').length == 1) {
         var typed_strings = $('.header .typed-text').text();
