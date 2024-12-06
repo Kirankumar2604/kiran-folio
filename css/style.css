@@ -1009,8 +1009,63 @@ a:focus {
     background-color: #e65c54;
 }
 
+/**********************************/
+/************ News css ************/
+/**********************************/
 
+.news {
+    position: relative;
+    padding: 60px 30px 30px 30px;
+    background: #ffffff;
+    border-bottom: 30px solid #F6D155;
+} 
 
+.news .content-header h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Scrollable container */
+#news-container.scrollable {
+    max-height: 300px; /* Set the height you want for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    border: 1px solid #ddd; /* Optional: Border for the scrollable area */
+    background-color: #ffffff;
+}
+
+/* Style for individual news items */
+.news-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.news-item h3 {
+    font-size: 18px;
+    margin: 0 0 5px;
+}
+
+.news-item h3 a {
+    color: #FF6F61;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: 'impact', sans-serif;
+    /* font-family: 'comic sans MS', cursive; */
+}
+
+.news-item h3 a:hover {
+    text-decoration: underline;
+}
+
+.news-item p {
+    margin: 0 0 5px;
+    color: #555;
+}
+
+.news-item small {
+    color: #666;
+}
 /**********************************/
 /*********** Contact CSS ***********/
 /**********************************/
