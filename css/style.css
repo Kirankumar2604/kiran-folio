@@ -55,6 +55,15 @@ a:focus {
     display: none;
 }
 
+.navbar-brand img{
+    height: 40px;
+    width: 40px;
+}
+
+.navbar-brand{
+    padding-left: 20px;
+}
+
 .navbar {
     padding: 15px;
     background: #222222 !important;
