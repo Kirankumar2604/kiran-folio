@@ -56,12 +56,17 @@ a:focus {
 }
 
 .navbar-brand img{
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
 
+.logo1{
+    margin-top: 5px;
+    font-size: 20px;
+}
 .navbar-brand{
     padding-left: 20px;
+    display: flex;
 }
 
 .navbar {
