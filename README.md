@@ -69,4 +69,4 @@ To redeploy, you can connect this project with your own Netlify account by follo
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is open source
